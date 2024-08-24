@@ -5,7 +5,6 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useDropzone } from 'react-dropzone';
 import './CreatePost.css';
-require('dotenv').config();
 const CreatePost = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
