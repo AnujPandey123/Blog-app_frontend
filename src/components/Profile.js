@@ -1,7 +1,7 @@
 // src/components/Profile.js
 import React, { useState, useEffect } from 'react';
 import './Profile.css'; // Make sure to create this CSS file
-require('dotenv').config();
+
 const Profile = () => {
     const [profile, setProfile] = useState(null);
     const [loading, setLoading] = useState(true);
