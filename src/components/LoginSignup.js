@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginSignup.css'; 
-require('dotenv').config();
+
 const LoginSignup = ({ handleLogin }) => {
     const [isLogin, setIsLogin] = useState(true);
     const [email, setEmail] = useState('');
