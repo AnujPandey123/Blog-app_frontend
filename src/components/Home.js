@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css'; // Import the CSS file for styling
-require('dotenv').config();
+
 const Home = () => {
     const [posts, setPosts] = useState([]);
 
