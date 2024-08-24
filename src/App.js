@@ -9,7 +9,7 @@ import Profile from './components/Profile';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-require('dotenv').config();
+
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const navigate = useNavigate();
