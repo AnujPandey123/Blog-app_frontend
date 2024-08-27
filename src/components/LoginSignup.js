@@ -12,7 +12,7 @@ const LoginSignup = ({ handleLogin }) => {
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
+            const response = await fetch(`${https://blog-app1-backend.onrender.com}/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
@@ -36,7 +36,7 @@ const LoginSignup = ({ handleLogin }) => {
     const handleSignupSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/signup`, {
+            const response = await fetch(`${https://blog-app1-backend.onrender.com}/auth/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, password }),
