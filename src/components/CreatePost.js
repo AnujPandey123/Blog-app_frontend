@@ -26,7 +26,7 @@ const CreatePost = () => {
         if (image) formData.append('image', image);
 
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/posts`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/posts`, {
                 method: 'POST',
                 headers: {
                     'x-auth-token': localStorage.getItem('token') // Assuming you use JWT for authentication
