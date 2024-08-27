@@ -12,21 +12,22 @@ const LoginSignup = ({ handleLogin }) => {
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`${'https://blog-app1-backend.onrender.com'}/auth/login`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
             });
 
-            const data = await response.json();
-            if (response.ok) {
-                // Save the JWT token in localStorage
-                localStorage.setItem('token', data.token);
-                handleLogin(); // Set authentication status
-                navigate('/'); // Redirect to home page
-            } else {
-                alert(data.msg || 'Invalid login details. Please try again.');
+            if (!response.ok) {
+                const errorText = await response.text(); // Get the response as text
+                throw new Error(errorText); // Throw an error with the response text
             }
+
+            const data = await response.json(); // Parse the response as JSON
+            // Save the JWT token in localStorage
+            localStorage.setItem('token', data.token);
+            handleLogin(); // Set authentication status
+            navigate('/'); // Redirect to home page
         } catch (error) {
             console.error('Error:', error);
             alert('An error occurred. Please try again.');
@@ -36,21 +37,22 @@ const LoginSignup = ({ handleLogin }) => {
     const handleSignupSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`${'https://blog-app1-backend.onrender.com'}/auth/signup`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, password }),
             });
 
-            const data = await response.json();
-            if (response.ok) {
-                // Save the JWT token in localStorage
-                localStorage.setItem('token', data.token);
-                handleLogin(); // Set authentication status
-                navigate('/'); // Redirect to home page
-            } else {
-                alert(data.msg || 'Invalid signup details. Please try again.');
+            if (!response.ok) {
+                const errorText = await response.text(); // Get the response as text
+                throw new Error(errorText); // Throw an error with the response text
             }
+
+            const data = await response.json(); // Parse the response as JSON
+            // Save the JWT token in localStorage
+            localStorage.setItem('token', data.token);
+            handleLogin(); // Set authentication status
+            navigate('/'); // Redirect to home page
         } catch (error) {
             console.error('Error:', error);
             alert('An error occurred. Please try again.');
