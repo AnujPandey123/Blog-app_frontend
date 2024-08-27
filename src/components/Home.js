@@ -7,7 +7,7 @@ const Home = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/posts`);
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/posts`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch posts');
                 }
